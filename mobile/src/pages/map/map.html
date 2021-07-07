@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ "Map" | translate }}</ion-title>
+
+        <ion-buttons right>
+            <button *ngIf = "global.currentCheckpointMarker" ion-button tappable (click)="goToCurrentCheckpointMarker()" class="page-icon">
+                <ion-icon name="flag"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div #map id="map"></div>
+</ion-content>

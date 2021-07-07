@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+
+        <ion-buttons left>
+            <button ion-button tappable (click)="launchHomPage()" class="page-icon">
+                <ion-icon name="ios-arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title class="page-title">{{ "Log in" | translate }}</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form #form="ngForm" (ngSubmit)="login(form.value)" novalidate>
+        <ion-list>
+
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="ios-person-outline"></ion-icon>
+                    {{ "E-mail" | translate }}
+                </ion-label>
+                <ion-input type="text" name="email" ngModel required clearInput #email="ngModel"
+                           [class.invalid]="email.errors && email.dirty"></ion-input>
+            </ion-item>
+
+            <ion-item class="error-message" *ngIf="email.errors?.required && email.dirty">
+                {{ "E-mail is required" | translate }}
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="ios-lock-outline"></ion-icon>
+                    {{ "Password" | translate }}
+                </ion-label>
+                <ion-input type="password" name="password" ngModel required #password="ngModel"
+                           [class.invalid]="password.errors && password.dirty"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="password.errors?.required && password.dirty">
+                {{ "Password is required" | translate }}
+            </ion-item>
+
+            <div class="spacing">
+                <button ion-button block round color="secondary" type="submit" [disabled]="!form.valid">{{ "Log in" | translate }}</button>
+                <p padding-top>{{ "Don't have an account?" | translate }}</p>
+                <button ion-button round block color="primary" type="button" tappable (click)="signup()">{{ "Sign up" | translate }}</button>
+                <p>{{ "or" | translate }}</p>
+
+                <!-- todo: facebook login -->
+                <div style="display: none">
+                    <button ion-button round block color="primary" type="button">
+                        <ion-icon name="logo-facebook" margin-right></ion-icon>
+                        {{ "Log in with Facebook" | translate }}
+                    </button>
+                </div>
+
+                <button ion-button round block color="primary" type="button" (click)="openResetPassword()" margin-top>
+                    <ion-icon name="refresh" margin-right></ion-icon>
+                    {{ "Reset password" | translate }}
+                </button>
+
+            </div>
+        </ion-list>
+    </form>
+</ion-content>

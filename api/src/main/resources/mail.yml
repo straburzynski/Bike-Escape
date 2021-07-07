@@ -1,0 +1,11 @@
+mail.debug: true
+mail.password: ---
+mail.user: ---
+mail.username: ---
+mail.smtp.auth: true
+mail.smtp.host: smtp.gmail.com
+mail.smtp.port: 587
+mail.smtp.starttls.enable: true
+mail.transport.protocol: smtp
+username: ---
+password: ---

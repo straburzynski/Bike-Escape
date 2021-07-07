@@ -1,0 +1,21 @@
+<ng-sidebar-container>
+
+  <!-- Sidebar -->
+  <ng-sidebar [(opened)]="opened" [mode]="sidebarMode" [autoCollapseWidth]="500" class="sidebar-menu">
+    <app-sidebar-menu></app-sidebar-menu>
+  </ng-sidebar>
+
+  <!-- Content -->
+  <div ng-sidebar-content>
+    <app-header>
+      <button md-button md-ripple (click)="toggleSidebar()">
+        <md-icon>menu</md-icon>
+      </button>
+    </app-header>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</ng-sidebar-container>

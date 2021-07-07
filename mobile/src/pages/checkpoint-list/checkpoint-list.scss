@@ -1,0 +1,110 @@
+@import "../../theme/variables.scss";
+
+checkpoint-list {
+
+  .card-title, .label, .item {
+    color: $light-font;
+  }
+  .item {
+    background: none;
+    padding-left: 10px;
+  }
+
+  .badge {
+    background: $secondary;
+  }
+
+  .button {
+    background: $secondary;
+  }
+
+  ion-icon {
+    color: $accent;
+  }
+
+  .item.activated {
+    background: none;
+    transition-duration: 0ms;
+  }
+
+  .item {
+    background: none;
+    padding: 0 2rem;
+  }
+
+  .item[detail-push] .item-inner, button.item:not([detail-none]) .item-inner, a.item:not([detail-none]) .item-inner {
+    background: none;
+    padding-right: 0;
+  }
+
+  //  timeline
+
+  .timeline {
+    max-width: 1024px;
+    margin: -1rem auto 2.5rem auto;
+    width: calc(100% - 2rem);
+    padding-left: 6rem;
+
+    .last {
+    }
+  }
+
+  .timeline-item {
+    color: $light-font;
+    border-left: 2px solid $secondary;
+    padding: 0 0 1em 2em;
+    margin-bottom: -20px;
+    position: relative;
+
+    p {
+      color: $dark-font;
+      margin: 5px 0 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 2rem;
+
+    }
+
+    ion-icon {
+      position: absolute;
+      top: 2rem;
+      right: 0;
+    }
+
+    h5 {
+      padding-top: 1.5rem;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      font-weight: normal;
+      padding-right: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .number {
+      position: absolute;
+      left: -5rem;
+      top: 1.3em;
+      display: block;
+    }
+
+    &::after {
+      width: 10px;
+      height: 10px;
+      display: block;
+      top: 1em;
+      position: absolute;
+      left: -14px;
+      border-radius: 50%;
+      content: '';
+      border: 8px solid $secondary;
+      background: $accent;
+    }
+
+
+
+  }
+
+}

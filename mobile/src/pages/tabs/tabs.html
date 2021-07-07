@@ -1,0 +1,5 @@
+<ion-tabs>
+    <ion-tab (ionSelect)="changeTab()" [root]="tabCheckpointDetails" [rootParams]="navParams.data"
+             tabTitle="{{ 'Checkpoint' | translate }}" tabIcon="list"></ion-tab>
+    <ion-tab (ionSelect)="changeTab()" [root]="tabMap" tabTitle="{{ 'Map' | translate }}" tabIcon="map"></ion-tab>
+</ion-tabs>

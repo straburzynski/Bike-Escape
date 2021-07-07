@@ -1,0 +1,17 @@
+.loader-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(23, 40, 55, 0.3);
+  z-index: 9999;
+  display: block;
+  position: fixed;
+
+  img {
+    left: 50% !important;
+    margin-left: -100px;
+    position: fixed !important;
+    top: 50% !important;
+    margin-top: -100px;
+    z-index: 9000 !important;
+  }
+}

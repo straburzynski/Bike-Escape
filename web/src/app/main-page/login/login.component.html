@@ -1,0 +1,54 @@
+<div class="flex-container bg-city">
+  <div class="flex-item">
+
+    <md-card>
+      <md-card-header>
+        <p class="text-center w-100">{{(isLoggedIn ? "Logout" : "Login") | translate}}</p>
+      </md-card-header>
+
+      <md-card-content>
+        <ng-container *ngIf="!isLoggedIn">
+          <form name="form" (ngSubmit)="login($event, email.value, password.value)" #f="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+              <md-input-container class="example-full-width">
+                <input mdInput placeholder="{{'E-mail' | translate}}" name="email"
+                       [(ngModel)]="model.email" #email="ngModel" required/>
+                <md-error>{{"E-mail is required" | translate}}</md-error>
+              </md-input-container>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+              <md-input-container class="example-full-width">
+                <input mdInput placeholder="{{'Password' | translate}}" name="password"
+                       [(ngModel)]="model.password" #password="ngModel" type="password" required/>
+                <md-error>{{"Password is required" | translate}}</md-error>
+              </md-input-container>
+            </div>
+
+            <div class="form-group text-center">
+              <button md-raised-button md-ripple color="primary">{{"Login" | translate}}</button>
+            </div>
+            <div *ngIf="!utils.isEmpty(loginResponse)" class="alert alert-danger">{{loginResponse | translate}}</div>
+          </form>
+        </ng-container>
+
+
+        <ng-container *ngIf="isLoggedIn">
+          <div class="text-center">
+            <p>{{"You are already logged in" | translate}}</p>
+            <button md-raised-button md-ripple color="primary" (click)="showLogoutDialog()" class="text-center">
+              {{"Logout" | translate}}
+            </button> 
+            <p class="m-4">{{"or" | translate}}</p>
+            <button md-raised-button md-ripple color="secondary" (click)="navigateToDashboard()" class="text-center">
+              {{"Back to dashboard" | translate}}
+            </button>
+          </div>
+        </ng-container>
+
+      </md-card-content>
+    </md-card>
+
+  </div>
+</div>
+  

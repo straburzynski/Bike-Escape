@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <md-card>
+      <md-card-header>
+        {{"My races" | translate}}
+      </md-card-header>
+      <md-card-content>
+        <div class="row row-race" *ngFor="let race of races" [routerLink]="['../race-details', race.id]">
+          <div class="col-md-2 d-flex flex-column align-self-center">
+            <image [imageData]="['raceImageThumbnail', race.id]"></image>
+          </div>
+          <div class="col-md-10 flex-column align-self-center">
+            <h5> {{race.name}} <span> | {{race.city}} </span></h5>
+            <p>
+              {{"Checkpoints" | translate}}: <span>{{race.checkpoints}}</span>,
+              {{"Race type" | translate}}: <span>{{race.raceType.name | translate}}</span>,
+              {{"Estimated time" | translate}}: <span>{{race.estimatedTime}} </span>,
+              {{"Difficulty" | translate}}: <span>{{race.difficulty.name | translate}} </span> <br/>
+              {{"Description" | translate}}: <span> {{race.description | truncate : 250}} </span>
+            </p>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+
+        <ion-buttons left>
+            <button ion-button tappable (click)="launchHomPage()" class="page-icon">
+                <ion-icon name="ios-arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title class="page-title">{{ "Settings" | translate }}</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content text-justify>
+    <div class="card-primary-bg" *ngIf="global.loggedIn">
+        <p text-center>{{ "User profile" | translate }}</p>
+
+        <ion-list no-lines class="user-profile">
+
+            <ion-item margin-bottom>
+                <ion-input type="text" placeholder="{{ 'Name' | translate}}" [(ngModel)]="name"
+                           (keyup.enter)="editUser()"></ion-input>
+                <button tappable ion-button item-end (click)="editUser()">
+                    {{ "Save name" | translate }}
+                </button>
+            </ion-item>
+
+            <ion-item>
+                <ion-avatar item-start>
+                    <img *ngIf="userImage" [src]="userImage | safeHtml">
+                </ion-avatar>
+                <p>User avatar</p>
+                <button tappable ion-button item-end (click)="openSelectPhoto()">
+                    {{ "Change" | translate }}
+                </button>
+            </ion-item>
+
+            <ion-item>
+                <p>Remove account (push and hold button)</p>
+                <button tappable ion-button item-end (press)="openFirstRemoveAccountConfirmation()">
+                    {{ "Remove" | translate }}
+                </button>
+            </ion-item>
+
+        </ion-list>
+
+    </div>
+
+    <div class="card-primary-bg">
+        <p text-center>{{ "App settings" | translate }}</p>
+
+        <ion-list>
+
+            <ion-item>
+                <ion-label>{{ "Language" | translate }}</ion-label>
+                <ion-select [(ngModel)]="language" okText="{{ 'OK' | translate }}"
+                            cancelText="{{ 'Cancel' | translate }}" (ionChange)="changeLanguage()">
+                    <ion-option value="{{lang.key}}" *ngFor="let lang of languages"
+                                [selected]="lang.key == global.currentLanguage">{{lang.value | translate}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>{{ "Sounds" | translate }}</ion-label>
+                <ion-toggle [(ngModel)]="global.isSoundEnabled" (ionChange)="saveSoundSetting($event)"></ion-toggle>
+            </ion-item>
+
+            <!--<ion-item>-->
+                <!--<ion-label>{{ "Tooltips" | translate }}</ion-label>-->
+                <!--<ion-toggle color="secondary" checked="false"></ion-toggle>-->
+            <!--</ion-item>-->
+
+        </ion-list>
+    </div>
+</ion-content>

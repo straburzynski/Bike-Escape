@@ -1,0 +1,59 @@
+@import "../../theme/variables.scss";
+
+page-checkpoint-details {
+
+  input {
+    color: white;
+  }
+
+  .card-title, .label {
+    color: white;
+  }
+
+  .item {
+    background: none;
+    padding: 0 5rem;
+  }
+
+  .item-inner {
+    padding: 0 !important;
+  }
+
+  .text-input {
+    margin: 0;
+    padding: 0;
+  }
+
+  .badge {
+    background: $secondary;
+  }
+
+  .button {
+    background: $secondary;
+    border-radius: 4rem;
+  }
+
+  ion-icon {
+    color: $accent;
+  }
+
+  .item.activated {
+    background: none;
+    transition-duration: 0ms;
+  }
+
+  .item[detail-push] .item-inner, button.item:not([detail-none]) .item-inner, a.item:not([detail-none]) .item-inner {
+    background: none;
+    padding-right: 0;
+  }
+
+  .question {
+    position: relative;
+    font-size: 1.8rem;
+    text-align: left;
+    margin: 2rem 3rem;
+    border-left: $accent 3px solid;
+    padding-left: 2rem;
+  }
+
+}

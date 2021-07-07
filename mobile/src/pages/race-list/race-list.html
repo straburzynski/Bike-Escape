@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+
+        <ion-buttons left>
+            <button ion-button tappable (click)="launchHomPage()" class="page-icon">
+                <ion-icon name="ios-arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title class="page-title">{{ "Select race" | translate }}</ion-title>
+
+        <ion-buttons right>
+            <button ion-button tappable class="page-icon" tappable (tap)="scanQrCode()">
+                <ion-icon name="md-qr-scanner"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+    <ion-searchbar [(ngModel)]="searchFilters.name"
+                   (ionInput)="loadBySearch()"
+                   placeholder="{{ 'search ...' | translate }}"
+                   animated debounce="500">
+    </ion-searchbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <div class="race-item" *ngFor="let race of races" tappable (click)="launchRaceDetailsPage($event, race.id)" no-lines>
+            <div class="race-image" [style.background-image]="sanitizeImage(race.id)"></div>
+            <h2>{{race.name}}</h2>
+            <p>{{ "City" | translate }}: <span>{{ race.city}}</span> • {{ "Time" | translate }}: <span>{{race.estimatedTime}}"</span></p>
+            <p>{{ "Type" | translate }}: <span>{{ race.raceTypeName | translate}}</span> • {{ "Difficulty" | translate }}: <span>{{ race.difficulty | translate}}</span></p>
+            <p>{{ race.description }}</p>
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+        </div>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="!isLast">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

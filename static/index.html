@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bike Escape</title>
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/slick/slick.css" rel="stylesheet">
+    <link href="plugins/slick/slick-theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="body-wrapper">
+
+<nav class="navbar main-nav fixed-top navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/bike-escape-logo.png" alt="logo"> BIKE ESCAPE
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link scrollTo" href="#home">Strona główna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scrollTo" href="#about">Opis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scrollTo" href="#contact">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--=====================================
+=            Banner            =
+======================================-->
+
+<section class="banner bg-1" id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 align-self-center">
+                <div class="content-block">
+                    <h1><span class="light">BIKE</span> ESCAPE</h1>
+                    <h5>Aplikacja mobilna do gier miejskich na rowerach!</h5>
+                    <ul>
+                        <li><h5>Weź udział w wyścigu na czas</h5></li>
+                        <li><h5>Rozwiąż serię zagadek</h5></li>
+                        <li><h5>Poznaj miasto z wirtualnym przewodnikiem</h5></li>
+                    </ul>
+                    <div class="app-badge">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="#"><img class="img-fluid" src="images/app-badge/google-play.png"
+                                                 alt="google-play"></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><img class="img-fluid" src="images/app-badge/app-store.png"
+                                                 alt="app-store"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="image-block">
+                    <img class="img-fluid" src="images/phones/iphone-banner.png" alt="iphone-banner">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--===========================
+=            About            =
+============================-->
+
+<section class="about section bg-2" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mr-auto">
+                <div class="image-block">
+                    <img src="images/phones/iphone-feature-app.png" alt="iphone-feature" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
+                <div class="about-block">
+                    <div class="about-item">
+                        <div class="icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h5>Gra miejska</h5>
+                            <p class="text-justify">
+                                Daj się porwać w wir wydarzeń, w których to Ty odgrywasz główną rolę.
+                                Wejdź w interakcję z miastem, odgadnij lokalizację kolejnych zagadek i poznaj ukrytą
+                                historię!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-item active">
+                        <div class="icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="content">
+                            <h5>Wyścig na czas</h5>
+                            <p class="text-justify">To alleycat, czyli rodzaj zawodów rowerowych organizowanych na
+                                terenie miasta z ruchem ulicznym. W każdym punkcie kontrolnym skanujesz kod QR, który
+                                pokazuje Ci kolejny punkt aż do mety.</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="icon">
+                            <i class="fas fa-map-signs"></i>
+                        </div>
+                        <div class="content">
+                            <h5>Wirtualny przewodnik</h5>
+                            <p class="text-justify">Jesteś w obcym mieście i nie wiesz co warto zobaczyć? A może chcesz
+                                poznać ciekawostki o swoim miejscu zamieszkania? Zapisz się na interaktywne
+                                zwiedzanie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--==============================
+=            Features            =
+===============================-->
+
+<section class="section feature" id="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 align-self-center text-center text-lg-right">
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Integracja z mapami</h5>
+                        <p>Możesz sprawdzić swoją lokalozację na mapie oraz podejrzeć pinezkę oznaczającą miejsce, do
+                            którego musisz się udać.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Eksploracja</h5>
+                        <p>Odkryj nowe miejsca, poznaj okolicę, poczuj rytm miasta i przeżyj przygodę.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="feature-item mb-0">
+                    <div class="icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Rywalizacja</h5>
+                        <p>Porównaj swoje wyniki z innymi - każda gra ma zapisywany czas jej ukończenia.</p>
+                    </div>
+                </div>
+                <div class="app-screen">
+                    <img class="img-fluid" src="images/phones/i-phone-screen.png" alt="app-screen">
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-money-check-alt"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Nagrody</h5>
+                        <p>Wybrane gry mogą zawierać dodatkową wygraną po ich zakończeniu, np. kod zniżkowy do kawiarni
+                            lub sklepu.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-left align-self-center">
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Różne tryby rozgrywki</h5>
+                        <p>Możesz na spokojnie zająć się zwiedzaniem miasta, wciąć udział w tajemniczej historii z
+                            opracowanym scenariuszem lub ścigać się na czas.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-unlock-alt"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Prywatne gry</h5>
+                        <p>Możesz wciąć udział w prywatnej grze (której nie ma na ogólnej liście) poprzez zeskanowanie
+                            jej kodu QR.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--=================================
+=            Description            =
+==================================-->
+
+<section class="section testimonial bg-color-secondary" id="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2 class="text-white">Stwórz własny wyścig</h2>
+                    <p class="text-white">Konto w aplikacji mobilnej daje dostęp do panelu administracyjnego na stronie
+                        www, który pozwala stworzyć własny scenariusz! Możesz projektować własne zagadki i dzielić się
+                        nimi z innymi. Jeśli chcesz stworzyć scenariusz specjalnie dla kogoś to nie ma problemu, ustaw
+                        tryb prywatny i prześlij wygenerany z aplikacji kod QR!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 m-auto">
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <div class="content">
+                            <div class="name">
+                                <h5 class="text-center">Tworzenie scenariusza</h5>
+                            </div>
+                            <div class="speech">
+                                <p class="text-center">Ustawiasz nazwę scenariusza, miasto, typ i jego opis oraz możliwe
+                                    zakończenia (po wygranej i przegranej). Do tego czas trwania, trudność, parę
+                                    obrazków i widoczność na liście. </p>
+                            </div>
+                            <div class="image">
+                                <img class="img-fluid" src="images/web-app/race_edit.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="content">
+                            <div class="name">
+                                <h5 class="text-center">Tworzenia punktów kontrolnych</h5>
+                            </div>
+                            <div class="speech">
+                                <p class="text-center">Każdy scenariusz musi mieć punkty kontrolne - to one sterują całą
+                                    historią i napędzają bieg wydarzeń. Dodaj opis każdego punktu, oraz pytanie, które
+                                    pozwoli odkryć kolejną lokalizację.</p>
+                            </div>
+                            <div class="image">
+                                <img class="img-fluid" src="images/web-app/checkpoint_edit.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="content">
+                            <div class="name">
+                                <h5 class="text-center">Lista Twoich scenariuszy</h5>
+                            </div>
+                            <div class="speech">
+                                <p class="text-center">Każdy stworzony scenariusz jest dostępny na liście i możesz go w
+                                    każdej chwili edytować lub usunąć. Możesz rozwijać swoją grę, dodać więcej punktów
+                                    kontrolnych i modyfikować zadania.</p>
+                            </div>
+                            <div class="image">
+                                <img class="img-fluid" src="images/web-app/races_list.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section cta-subscribe" id="contact">
+    <div class="container">
+        <div class="row bg-circle">
+            <div class="col-lg-4">
+                <div class="image"><img src="images/phones/checkpoint.png" alt="iphone-app"></div>
+            </div>
+            <div class="col-lg-8 align-self-center">
+                <div class="content">
+                    <div class="title">
+                        <h2>Subskrypcja</h2>
+                    </div>
+                    <div class="description">
+                        <p>Dowiedz się pierwszy o aktualizacjach, nowych wersjach aplikacji i wydarzeniach z Bike
+                            Escape!</p>
+                    </div>
+                    <form action="#">
+                        <div class="input-group">
+                            <input type="text" class="form-control main"
+                                   placeholder="Więcej informacji na fanpage'u facebooka" readonly>
+                            <a href="http://facebook.com"><span class="input-group-addon" id="btnGroupAddon">
+                               <i class="fas fa-caret-right"></i>
+                            </span></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--============================
+=            Footer            =
+=============================-->
+
+<footer class="footer-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mr-auto">
+                <ul class="footer-links list-inline">
+                    <li class="list-inline-item">
+                        <a class="nav-link scrollTo" href="#home">Strona główna</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link scrollTo" href="#about">Opis</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link scrollTo" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 text-lg-right">
+                <ul class="social-icons list-inline">
+                    <li class="list-inline-item">
+                        <a href=""><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="copyright">
+                    <p class="text-center"><a href="http://bike-escape.com">Bike Escape</a>
+                        @ 2018 Wszelkie prawa zastrzeżone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="plugins/jquery/jquery.js"></script>
+<script src="plugins/popper/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+
+</html>
+

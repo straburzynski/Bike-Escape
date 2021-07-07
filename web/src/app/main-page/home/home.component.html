@@ -1,0 +1,17 @@
+<div class="home-page">
+  
+  <div class="text-center">
+    <br/>
+    <h3>home page</h3>
+    <br/>
+  </div>
+
+  <div class="text-center">
+    <a *ngIf="!isUserLoggedIn" md-raised-button md-ripple color="primary" class="m-5" routerLink="login">{{"Login" | translate}}</a>
+    <ng-container *ngIf="isUserLoggedIn">
+      <button md-raised-button md-ripple color="primary" class="m-5" (click)="logout()">{{"Logout" | translate}}</button>
+      <button md-raised-button md-ripple color="primary" class="m-5" routerLink="dashboard">{{"Dashboard" | translate}}</button>
+    </ng-container>
+  </div>
+
+</div>

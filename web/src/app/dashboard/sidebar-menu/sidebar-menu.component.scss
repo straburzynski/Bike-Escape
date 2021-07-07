@@ -1,0 +1,27 @@
+.left-sidebar-menu {
+  width: 240px;
+}
+
+.menu-button {
+  margin-bottom: 50px;
+  button {
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+    font-weight: 300;
+  }
+  .active {
+    background-color: #374866;
+    color: #d9dfe9;
+  }
+}
+
+.version {
+  background-color: #212938;
+  position: fixed;
+  bottom: 0;
+  width: 240px;
+  text-align: center;
+  font-size: small;
+  padding: 10px 0;
+}

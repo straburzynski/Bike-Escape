@@ -1,0 +1,150 @@
+<ng-container *ngIf="raceId">
+  <div class="row">
+    <div class="col-md-12">
+      <md-card>
+        <md-card-header>
+          <button md-icon-button>
+            <md-icon md-ripple (click)="goBack()">chevron_left</md-icon>
+          </button>
+          {{"Create new checkpoint" | translate}}
+        </md-card-header>
+
+        <md-card-content>
+          <form [formGroup]="checkpointForm" (ngSubmit)="createCheckpoint()">
+
+            <div class="row">
+              <div class="col-lg-6">
+                <md-form-field>
+                  <input mdInput placeholder="{{'Checkpoint name' | translate}}" formControlName="name" minlength="5"
+                         maxlength="30">
+                  <md-hint align="end">{{checkpointForm.value.name?.length}} / 30</md-hint>
+                  <md-error>{{"Name should have 5-30 characters" | translate}}</md-error>
+                </md-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12" id="description">
+                <md-form-field>
+              <textarea mdInput placeholder="{{'Description' | translate}}" formControlName="description" minlength="20"
+                        maxlength="1000"></textarea>
+                  <md-hint align="end">{{checkpointForm.value.description?.length}} / 1000</md-hint>
+                  <md-error>{{"Description should have 20-1000 characters" | translate}}</md-error>
+                </md-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <md-form-field>
+                  <input mdInput placeholder="{{'Question'  | translate}}" formControlName="question" minlength="10"
+                         maxlength="50">
+                  <md-hint align="end">{{checkpointForm.value.question?.length}} / 50</md-hint>
+                  <md-error>{{"Question should have 10-50 characters" | translate}}</md-error>
+                </md-form-field>
+              </div>
+              <div class="col-lg-4">
+                <md-select placeholder="{{'Answer type' | translate}}" formControlName="answerType">
+                  <md-option value="text">{{"Text" | translate}}</md-option>
+                  <md-option value="qr">{{"QR code" | translate}}</md-option>
+                </md-select>
+                <span class="mat-error small"
+                      *ngIf="checkpointForm.controls['answerType'].invalid && (checkpointForm.controls['answerType'].touched || checkpointForm.controls['answerType'].dirty)">
+               {{"Select answer type" | translate}}</span>
+              </div>
+              <div class="col-lg-2 d-flex">
+                <button md-raised-button md-ripple color="primary" type="button" (click)="generateQrCode()"
+                        class="align-self-center"
+                        *ngIf="checkpointForm.value?.answerType === 'qr' && checkpointForm.value.answer?.length > 0">
+                  <md-icon>crop_free</md-icon>
+                  {{"QR code" | translate}}
+                </button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <md-form-field>
+                  <input mdInput placeholder="{{'Answer' | translate}}" formControlName="answer" minlength="1"
+                         maxlength="30">
+                  <md-hint align="end">{{checkpointForm.value.answer?.length}} / 30</md-hint>
+                  <md-error>{{"Answer should have 1-30 characters" | translate}}</md-error>
+                </md-form-field>
+              </div>
+              <div class="col-lg-6">
+                <md-form-field>
+                  <input mdInput placeholder="{{'Hint' | translate}}" formControlName="hint" minlength="10"
+                         maxlength="255">
+                  <md-hint align="end">{{checkpointForm.value.hint?.length}} / 255</md-hint>
+                  <md-error>{{"Hint should have 10-255 characters" | translate}}</md-error>
+                </md-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <md-form-field>
+                    <input mdInput id="search-location" placeholder="{{'Search for location' | translate}}"
+                           autocorrect="off"
+                           autocapitalize="off" spellcheck="off" type="text" class="form-control" #search
+                           [formControl]="searchControl">
+                  </md-form-field>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <md-form-field>
+                  <input mdInput disabled
+                         value="{{'lat' | translate}}: {{latitude}}, {{'lng' | translate}}: {{longitude}}"/>
+                </md-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom"
+                         [usePanning]=true>
+                  <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]=true
+                              (dragEnd)="mapDragEnd($event)"></agm-marker>
+                </agm-map>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 mt-3 mb-3">
+                <div class="file-upload">
+              <span class="text">
+                {{"Upload checkpoint image" | translate}}</span>
+                  <input type="file" (change)="fileChangeListener($event)">
+                </div>
+                <img-cropper [hidden]="!data.image" #cropper [image]="data" [settings]="cropperSettings"
+                             (onCrop)="onCropListener($event)"></img-cropper>
+              </div>
+              <div class="col-lg-6">
+             <span class="result rounded" *ngIf="data.image">
+               <img [src]="data.image" class="img-fluid">
+            </span>
+              </div>
+            </div>
+
+            <button md-raised-button md-ripple type="submit" color="primary"
+                    [disabled]="!checkpointForm.valid || !data.image">
+              <md-icon>send</md-icon>
+              {{"Save" | translate}}
+            </button>
+
+            <div class="mt-4 row col-alerts">
+              <div class="col-lg" role="alert" *ngIf="!checkpointForm.valid">
+                <p class="alert alert-danger">{{"Fill all required fields" | translate}}</p>
+              </div>
+              <div class="col-lg" role="alert" *ngIf="!data.image">
+                <p class="alert alert-danger">{{"Upload checkpoint image" | translate}}</p>
+              </div>
+            </div>
+          </form>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</ng-container>

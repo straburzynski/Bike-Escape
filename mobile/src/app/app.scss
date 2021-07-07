@@ -1,0 +1,261 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import "../theme/variables";
+
+body {
+  color: $primary;
+}
+
+.side-menu {
+  background-color: $primary;
+}
+
+// ---------- custom navbar ----------
+
+.toolbar-background {
+  background: $primary;
+  color: $light-font;
+}
+
+.toolbar-title {
+  padding: 0.5rem;
+  margin: 0;
+  border-radius: 2rem;
+  color: #cccccc;
+  font-weight: 400;
+  text-align: center;
+}
+
+.page-icon {
+  background-color: $secondary;
+  padding: 0.5rem;
+  margin: 0 1rem;
+  border-radius: 2rem;
+  color: $accent;
+  width: 32px;
+}
+
+// -----------------------------------
+//--------- side menu ----------------
+
+.side-menu .list {
+  margin: 2rem auto;
+}
+
+.side-menu .item {
+  background: none;
+  padding: 0 3rem;
+  color: $light-font;
+}
+
+.side-menu button p {
+  color: $dark-font;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.side-menu .item:active {
+  background-color: $secondary;
+  //border-radius: 4rem;
+}
+
+.side-menu .list .item-block .item-inner, .side-menu .list .item-block:last-child {
+  border-bottom: 1px solid $secondary;
+}
+
+.side-menu .list > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+  border-bottom: 0 solid;
+}
+
+.side-menu .list > .item-block:first-child {
+  border-top: 0 solid;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 4rem;
+  img {
+    width: 100%;
+    border: 0;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+}
+
+.user-info div {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  margin: 1rem auto;
+  border: $light-font;
+}
+
+.user-info h2 {
+  margin: 0;
+  color: $light-font;
+}
+
+.user-info p {
+  color: $dark-font;
+  margin: 0;
+}
+
+.side-menu .icon {
+  color: $accent;
+}
+
+.side-menu .item[detail-push] .item-inner, button.item:not([detail-none]) .item-inner, a.item:not([detail-none]) .item-inner {
+  background: none;
+  padding-right: 0;
+}
+
+.vertical-center {
+  text-align: center;
+  height: 52rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+//--------- side menu ----------------
+// -----------------------------------
+
+.item {
+  background: none;
+  padding-right: 16px;
+}
+
+.item .item-block .item-inner {
+  padding-right: 0 !important;
+}
+
+ion-avatar, ion-thumbnail {
+  float: left;
+  padding-right: 15px;
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.list > .item-block:first-child {
+  border-top: 0 solid;
+}
+
+.content {
+  background-color: $secondary;
+  color: $light-font;
+}
+
+.content hr {
+  height: 1rem;
+  background-color: $secondary;
+  margin-top: 2rem;
+}
+
+.alert-button {
+  color: #333 !important;
+}
+
+.list > .item-block:last-child, .list > .item-wrapper:last-child .item-block {
+  border-bottom: none;
+}
+
+.primary-bg {
+  background-color: $primary;
+}
+
+.card-primary-bg {
+  background-color: $primary;
+  margin: 1rem;
+  padding: 1rem 0;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  button ion-icon {
+    color: $accent;
+  }
+
+}
+
+ion-refresher {
+  top: 114px !important;
+  z-index: 99;
+
+}
+
+.loading-background{
+  background-color: white;
+  padding: 5px 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.refresher-refreshing .spinner-bubbles circle,
+.refresher-refreshing .spinner-circles circle,
+.refresher-refreshing .spinner-dots circle {
+  fill: $accent;
+}
+
+.refresher-pulling-icon, .refresher-refreshing-icon {
+  color: $accent;
+}
+
+.loading-ios .loading-wrapper, .loading-md .loading-wrapper {
+  background: none;
+}
+
+//--------- options ----------------
+//-----------------------------------
+
+.hints-disabled {
+  display: none;
+}
+
+.hints-enabled {
+  display: inherit;
+}
+
+//--------- android styles ----------------
+//-----------------------------------
+
+.item-md.item-input .item-inner {
+  border-bottom-color: #cccccc!important;
+  -webkit-box-shadow: inset 0 -1px 0 0 #cccccc!important;
+  box-shadow: inset 0 -1px 0 0 #cccccc!important;
+}
+
+.item-md.error-message .item-inner {
+  border: none!important;
+  box-shadow: none!important;
+}
+
+.label-md[floating] {
+  color: #cccccc!important;
+}
+
+.loading-md .loading-wrapper {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}

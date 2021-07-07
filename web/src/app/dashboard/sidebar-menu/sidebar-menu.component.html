@@ -1,0 +1,49 @@
+<div class="left-sidebar-menu">
+  <p class="m-2 text-center">
+    <img src="assets/img/logo.png" class="img-fluid w-50"/><br/>
+    <button md-button md-ripple class="nav-link text-center logo" routerLink="/">Bike Escape</button>
+  </p>
+  
+  <hr/>
+
+  <div class="menu-button">
+
+    <ng-container *ngIf="authService.isAdmin">
+      <button md-button md-ripple routerLink="statistics" [routerLinkActive]="'active'">
+        <md-icon>view_module</md-icon>
+        <span>{{"Statistics" | translate}}</span>
+      </button>
+
+      <button md-button md-ripple routerLink="all-races" [routerLinkActive]="'active'">
+        <md-icon>storage</md-icon>
+        <span>{{"All races" | translate}}</span>
+      </button>
+      <hr/>
+    </ng-container>
+
+    <button md-button md-ripple routerLink="user-profile" [routerLinkActive]="'active'">
+      <md-icon>person</md-icon>
+      <span>{{"User profile" | translate}}</span>
+    </button>
+
+    <button md-button md-ripple routerLink="create-race" [routerLinkActive]="'active'">
+      <md-icon>add</md-icon>
+      <span>{{"Add new race" | translate}}</span>
+    </button>
+
+    <button md-button md-ripple routerLink="my-races" [routerLinkActive]="'active'">
+      <md-icon>art_track</md-icon>
+      <span>{{"My created races" | translate}}</span>
+    </button>
+
+    <button md-button md-ripple routerLink="my-races-results" [routerLinkActive]="'active'">
+      <md-icon>format_list_numbered</md-icon>
+      <span>{{"My races results" | translate}}</span>
+    </button>
+  </div>
+
+  <div class="version">
+    {{version}}
+  </div>
+  
+</div>

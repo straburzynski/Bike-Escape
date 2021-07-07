@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+
+        <ion-buttons left>
+            <button ion-button tappable (click)="popView()" class="page-icon">
+                <ion-icon name="ios-arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title class="page-title">{{ "Select race" | translate }}</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div *ngIf="selectedRace">
+        <div class="card-primary-bg">
+
+            <h3 text-center>{{ selectedRace.name }}</h3>
+            <img src="{{ raceImageUrl }}" class="center"/>
+            <p text-justify padding-horizontal>{{ selectedRace.description }}</p>
+
+            <ion-list padding no-lines>
+
+                <ion-item>
+                    <ion-icon name="ios-navigate-outline" item-left></ion-icon>
+                    {{ "City" | translate }}
+                    <ion-badge item-right>{{ selectedRace.city }}</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="map" item-left></ion-icon>
+                    {{ "Race type" | translate }}
+                    <ion-badge item-right>{{ selectedRace.raceType.name | translate}}</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="pin" item-left></ion-icon>
+                    {{ "Checkpoints" | translate }}
+                    <ion-badge item-right>{{ selectedRace.checkpoints }}</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="clock" item-left></ion-icon>
+                    {{ "Estimated time" | translate }}
+                    <ion-badge item-right>{{ selectedRace.estimatedTime }}'</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="game-controller-b" item-left></ion-icon>
+                    {{ "Difficulty" | translate }}
+                    <ion-badge item-right>{{ selectedRace.difficulty.name | translate}}</ion-badge>
+                </ion-item>
+            </ion-list>
+
+            <ion-buttons text-center>
+                <button ion-button round icon-left tappable (click)="closeModal()">
+                    <ion-icon name="return-left" margin-right></ion-icon>
+                    {{ "Back" | translate }}
+                </button>
+                <button ion-button round icon-right tappable (click)="selectRace(selectedRace)">
+                    {{ "Select" | translate }}
+                    <ion-icon name="play" margin-left></ion-icon>
+                </button>
+            </ion-buttons>
+        </div>
+    </div>
+
+    <div *ngIf="noRaceFound">
+        <div class="card-primary-bg">
+            <img padding src="assets/img/ops.png" class="center"/>
+            <h2 text-center padding>{{ "Race not found" | translate }}</h2>
+            <p text-center padding-horizontal>{{ "Check if QR code is valid" | translate }}</p>
+            <ion-buttons text-center margin-vertical>
+                <button ion-button round icon-left tappable (click)="closeModal()">
+                    <ion-icon name="return-left"></ion-icon>
+                    {{ "Back" | translate }}
+                </button>
+            </ion-buttons>
+        </div>
+    </div>
+
+</ion-content>

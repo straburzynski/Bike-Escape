@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <md-card>
+      <md-card-header>
+        {{"My races results" | translate}}
+      </md-card-header>
+
+      <md-card-content *ngIf="userRacesResults">
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>{{"Race name" | translate}}</th>
+            <th>{{"City" | translate}}</th>
+            <th>{{"Status" | translate}}</th>
+            <th>{{"Finish time" | translate}}</th>
+            <th>{{"Date" | translate}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let row of userRacesResults; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{row.raceName}}</td>
+            <td>{{row.city}}</td>
+            <td>{{row.raceStatus | translate}}</td>
+            <td>{{row.raceStatus === 'finished' ? secondsToTime(row.totalTime) : '-'}}</td>
+            <td>{{row.finishDate | formatDate:'DD.MM.YYYY'}}</td>
+          </tr>
+          <tr *ngIf="userRacesResults.length == 0">
+            <td colspan="6">
+              <p class="font-weight-light text-center m-3">{{"You don't have finished races" | translate}}</p>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+
+      </md-card-content>
+    </md-card>
+
+  </div>
+</div>

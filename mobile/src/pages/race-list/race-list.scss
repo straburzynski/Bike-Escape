@@ -1,0 +1,71 @@
+@import "../../theme/variables";
+
+page-race-list {
+
+  ion-searchbar {
+    position: fixed;
+    height: 5rem;
+  }
+
+  ion-content {
+    background-color: $secondary !important;
+  }
+
+  .list {
+    margin: 6rem 0 0;
+  }
+
+  .race-item {
+    padding: 1rem 2rem 0 6rem;
+    background-color: $primary;
+    color: $light-font;
+    position: relative;
+    margin: 0 0 1rem 5rem;
+    height: 10rem;
+    border-radius: 2rem 0 0 2rem;
+  }
+
+  .race-image {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    top: 1rem;
+    left: -3.5rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+  }
+
+  .race-item ion-icon {
+    position: absolute;
+    font-size: 2rem;
+    top: 4rem;
+    right: 2rem;
+    color: $accent;
+  }
+
+  h2 {
+    color: $light-font;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0 !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  p {
+    color: $dark-font;
+    margin: 0.2rem 0 0 !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    & span {
+      color: $blue-font;
+    }
+  }
+
+  .has-refresher > .scroll-content {
+    border: 0 solid;
+  }
+
+}

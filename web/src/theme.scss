@@ -1,0 +1,178 @@
+@import '~@angular/material/theming';
+@import 'pallete';
+
+@include mat-core();
+
+$custom-primary: #202837;
+$custom-secondary: #374866;
+$custom-accent: #ff8800;
+$light-font: #d9dfe9;
+$dark-font: #525e77;
+$blue-font: #74859e;
+
+$primary: mat-palette($md-primary, 500);
+$secondary: mat-palette($md-secondary, 500);
+$accent: mat-palette($md-accent, 500);
+$warn: mat-palette($mat-red);
+
+$theme: mat-light-theme($secondary, $primary, $accent);
+
+@include angular-material-theme($theme);
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+}
+
+.ng-sidebar__content, .bg-city {
+  background: linear-gradient(rgba(32, 40, 55, 0.9), rgba(32, 40, 55, 0.7), rgba(32, 40, 55, 0.9)), url("assets/img/city.jpg") no-repeat fixed center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+aside.ng-sidebar {
+  background-color: $custom-primary;
+  z-index: 10 !important;
+  color: $light-font;
+
+  md-icon {
+    margin-right: 15px;
+    color: $custom-accent !important;
+  }
+}
+
+form {
+  width: 100%;
+
+  md-form-field {
+    width: 100% !important;
+    margin: 10px 0;
+  }
+
+  md-select {
+    width: 100% !important;
+    margin: 4px 0 0;
+  }
+}
+
+md-card {
+  margin: 20px 0;
+  border-radius: 5px !important;
+}
+
+md-card-content {
+  margin-top: 20px;
+}
+
+md-card-header {
+  display: inline-block;
+  color: white;
+  background-color: $custom-accent;
+  padding: 6px 0;
+  font-weight: 200;
+  font-size: 18px;
+  position: absolute;
+  width: calc(100% - 50px);
+  top: -20px;
+  text-align: center;
+  height: 40px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  button {
+    line-height: 24px !important;
+    height: 30px !important;
+    width: 30px !important;
+    margin-right: 15px !important;
+  }
+}
+
+#description textarea, #summary textarea, #failDescription textarea {
+  resize: vertical;
+  overflow: auto;
+  height: 150px;
+}
+
+:focus {
+  outline: 0 !important;
+}
+
+.cdk-global-overlay-wrapper {
+  align-items: center !important
+}
+
+.no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+}
+
+span.error {
+  color: red;
+  font-weight: 300;
+  font-size: 11px;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid $dark-font;
+  background-color: $custom-secondary;
+  width: 80%;
+}
+
+agm-map {
+  height: 300px;
+}
+
+.file-upload {
+  height: 60px;
+  width: 300px;
+  font-size: 16px;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: all 0.2s;
+  background-color: $custom-secondary;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.file-upload:hover {
+  background-color: $custom-secondary;
+}
+
+input[type='file'] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.col-alerts {
+  .alert {
+    text-align: center;
+  }
+}

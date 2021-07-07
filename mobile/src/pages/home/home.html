@@ -1,0 +1,60 @@
+<ion-content no-bounce class="home-page">
+    <div class="vertical-center">
+
+        <p>bike <b>escape</b></p>
+        <img class="logo" src="assets/img/logo.png"/>
+
+        <div class="title">
+            <div *ngIf="global.currentRaceStatus !== 0 && global.loggedIn && currentRace"> {{ currentRace.name }}</div>
+        </div>
+
+        <ion-buttons>
+
+            <button class="big-circle" *ngIf="!global.loggedIn" disabled></button>
+            <button class="big-circle" *ngIf="global.loggedIn && global.currentRaceStatus === 0"
+                    tappable (click)="launchRaceListPage()">
+                <div class="hints-disabled">
+                    <p>{{ "Select race and begin game" | translate }}</p>
+                    <ion-icon class="animated-arrow" name="md-arrow-round-down"></ion-icon>
+                </div>
+            </button>
+            <button class="big-circle" *ngIf="global.loggedIn && global.currentRaceStatus === 1 && currentRace"
+                    tappable (click)="startRace()" [style.background-image]="currentRaceImage">
+                <span>{{ "Start" | translate }}</span>
+            </button>
+
+            <button *ngIf="global.loggedIn && global.currentRaceStatus === 1 && currentRace"
+                    class="tiny-circle menu-close" tappable (click)="unloadRace()">
+                <ion-icon name="ios-close"></ion-icon>
+            </button>
+
+            <button class="big-circle" *ngIf="global.loggedIn && global.currentRaceStatus === 2"
+                    tappable (click)="launchCurrentRacePage()" [style.background-image]="currentRaceImage">
+                <span>{{ "Resume" | translate }}</span>
+            </button>
+
+            <button class="small-circle menu-login" *ngIf="!global.loggedIn" tappable (click)="launchLoginPage()">
+                <ion-icon name="ios-contact"></ion-icon>
+                <span>{{ "Log in" | translate }}</span>
+            </button>
+
+            <button class="small-circle menu-choose" *ngIf="global.loggedIn" tappable (click)="launchRaceListPage()">
+                <ion-icon name="ios-search"></ion-icon>
+                <span>{{ "Choose" | translate }}</span>
+            </button>
+
+            <button class="small-circle menu-main" menuToggle (click)="playClick()">
+                <ion-icon name="ios-menu"></ion-icon>
+                <span>{{ "Menu" | translate }}</span>
+            </button>
+
+            <button class="small-circle menu-help" tappable (click)="launchHelpPage()">
+                <ion-icon name="ios-help-circle"></ion-icon>
+                <span>{{ "Help" | translate }}</span>
+            </button>
+
+        </ion-buttons>
+
+
+    </div>
+</ion-content>

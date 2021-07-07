@@ -1,0 +1,67 @@
+<ion-menu [content]="content">
+
+    <ion-content class="side-menu primary-bg">
+        <ion-list>
+
+            <div *ngIf="global.loggedIn" class="user-info">
+                <div>
+                    <img *ngIf="userImage" [src]="userImage | safeHtml">
+                </div>
+                <h2>{{global.currentUser.firstName}}</h2>
+                <p>{{global.currentUser.email}}</p>
+            </div>
+
+            <button *ngIf="!global.loggedIn" ion-item tappable (click)="setPage(loginPage)">
+                {{ "Log in" | translate }}
+                <p>{{ "Use e-mail or connect via facebook" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button ion-item tappable (click)="setPage(homePage)">
+                {{ "Home" | translate }}
+                <p>{{ "Go to main menu" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button *ngIf="global.currentRaceStatus==0 && global.loggedIn" ion-item tappable (click)="setPage(raceListPage)">
+                {{ "Choose" | translate }}
+                <p>{{ "Select race from list or scan QR code" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button *ngIf="global.currentRaceStatus==1 && global.loggedIn" ion-item tappable (click)="startRace()">
+                {{ "Start" | translate }}
+                <p>{{ "Race and time countdown will start" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button *ngIf="global.currentRaceStatus==2 && global.loggedIn" ion-item tappable (click)="setPage(currentRace)">
+                {{ "Resume" | translate }}
+                <p>{{ "Back to the race" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button ion-item tappable (click)="setPage(helpPage)">
+                {{ "Help" | translate }}
+                <p>{{ "Quick tutorial" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button ion-item tappable (click)="setPage(settingsPage)">
+                {{ "Settings" | translate }}
+                <p>{{ "Custom user preferences" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+            <button *ngIf="global.loggedIn" ion-item tappable (click)="showLogoutConfirmation()">
+                {{ "Log out" | translate }}
+                <p>{{ "Don't want to play anymore" | translate }}</p>
+                <small item-end><ion-icon name="ios-arrow-forward" ></ion-icon></small>
+            </button>
+
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,39 @@
+@import "../../theme/variables.scss";
+
+page-settings {
+
+  .card-primary-bg {
+    padding: 1rem;
+  }
+
+  .item {
+    color: $light-font;
+  }
+
+  .select .select-icon .select-icon-inner {
+    color: $light-font !important;
+  }
+
+  ion-toggle {
+    opacity: 0.5;
+  }
+
+  ion-toggle.toggle-checked {
+    opacity: 1.0;
+  }
+
+  .toggle-ios.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-icon {
+    background-color: $secondary;
+  }
+
+  ion-input.input.input-ios, ion-input.input.input-md {
+    padding: 0 10px 0 0;
+    border-bottom: solid 1px $light-font;
+  }
+
+  button.item-button.button.button-ios, button.item-button.button.button-md {
+    background-color: $secondary;
+    margin-left: 20px;
+  }
+
+}

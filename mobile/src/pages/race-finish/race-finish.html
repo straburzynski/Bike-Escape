@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-title>{{ "The end" | translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ng-container *ngIf="currentRace" class="card-primary-bg">
+        <div class="card-primary-bg">
+            <h3 text-center>{{ "You have win the game" | translate }}</h3>
+            <img src="{{ summaryImageUrl }}"/>
+            <h3 text-center *ngIf="totalTime" padding>
+                {{"Your time" | translate }}: {{ totalTime | secondsToTime }}
+            </h3>
+            <p text-justify padding-horizontal>
+                {{ currentRace.summary }}
+            </p>
+
+            <ion-buttons text-center>
+                <button ion-button text-center tappable (click)="resetRaceAndBack()">
+                    {{ "Ok" | translate }}
+                </button>
+            </ion-buttons>
+        </div>
+    </ng-container>
+
+</ion-content>

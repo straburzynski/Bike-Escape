@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-12">
+    <md-card>
+      <md-card-header>
+        {{"All user races" | translate}}
+      </md-card-header>
+      <md-card-content>
+        <md-list>
+          <md-list-item *ngFor="let race of races" [routerLink]="['../race-details', race.id]">
+            <img md-list-avatar [src]="loadRaceImage(race.id)">
+            <h3 md-line> {{race.name}} </h3>
+            <p md-line>
+              <span> {{race.city}} </span>
+              <span class="demo-2"> -- {{race.description}} </span>
+            </p>
+            <button md-icon-button>
+              <md-icon md-ripple (click)="goBack()">chevron_right</md-icon>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

@@ -1,0 +1,186 @@
+<div class="row">
+  <div class="col-md-12">
+    <md-card>
+      <md-card-header>
+        {{"Create new race" | translate}}
+      </md-card-header>
+
+      <md-card-content>
+
+        <form [formGroup]="raceForm" (ngSubmit)="createRace()">
+
+          <div class="row">
+            <div class="col-lg-6">
+              <md-form-field>
+                <input mdInput placeholder="{{'Race name' | translate}}" formControlName="name" maxlength="50">
+                <md-hint align="end">{{raceForm.value.name?.length}} / 50</md-hint>
+                <md-error>{{"Name should have 3-50 characters" | translate}}</md-error>
+              </md-form-field>
+            </div>
+            <div class="col-lg-6">
+              <md-form-field>
+                <input mdInput placeholder="{{'City' | translate}}" formControlName="city" maxlength="30">
+                <md-hint align="end">{{raceForm.value.city?.length}} / 30</md-hint>
+                <md-error>{{"City should have 3-30 characters" | translate}}</md-error>
+              </md-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4">
+              <md-select placeholder="{{'Race type' | translate}}" formControlName="raceType">
+                <md-option value="time">{{"Time trial" | translate}}</md-option>
+                <md-option value="tasks">{{"Race with tasks" | translate}}</md-option>
+              </md-select>
+              <span class="mat-error small"
+                    *ngIf="raceForm.controls['raceType'].invalid && (raceForm.controls['raceType'].touched || raceForm.controls['raceType'].dirty)">
+            {{"Select race type" | translate}}</span>
+            </div>
+            <div class="col-lg-4">
+              <md-select placeholder="{{'Difficulty' | translate}}" formControlName="difficulty" class="w-100">
+                <md-option value="easy">{{"Easy" | translate}}</md-option>
+                <md-option value="medium">{{"Medium" | translate}}</md-option>
+                <md-option value="hard">{{"Hard" | translate}}</md-option>
+              </md-select>
+              <span class="mat-error small"
+                    *ngIf="raceForm.controls['difficulty'].invalid && (raceForm.controls['difficulty'].touched || raceForm.controls['difficulty'].dirty)">
+              {{"Select difficulty" | translate}}</span>
+            </div>
+            <div class="col-lg-4">
+              <md-form-field>
+                <input mdInput placeholder="{{'Estimated time (in minutes)' | translate}}"
+                       formControlName="estimatedTime" type="number" min="10" max="240">
+                <md-error>{{"Time should be between 10 and 240 minutes" | translate}}</md-error>
+              </md-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12" id="description">
+              <md-form-field>
+            <textarea mdInput placeholder="{{'Race description' | translate}}" formControlName="description"
+                      maxlength="2000"></textarea>
+                <md-hint align="end">{{raceForm.value.description?.length}} / 2000
+                </md-hint>
+                <md-error>{{"Description should have 20-2000 characters" | translate}}</md-error>
+              </md-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12" id="summary">
+              <md-form-field>
+            <textarea mdInput placeholder="{{'Win race description' | translate}}" formControlName="summary"
+                      maxlength="2000"></textarea>
+                <md-hint align="end">{{raceForm.value.summary?.length}} / 2000</md-hint>
+                <md-error>{{"Description should have 20-2000 characters" | translate}}</md-error>
+              </md-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12" id="failDescription">
+              <md-form-field>
+            <textarea mdInput placeholder="{{'Fail race description' | translate}}"
+                      formControlName="failDescription"
+                      maxlength="2000"></textarea>
+                <md-hint align="end">{{raceForm.value.failDescription?.length}} / 2000</md-hint>
+                <md-error>{{"Description should have 20-2000 characters" | translate}}</md-error>
+              </md-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <md-checkbox formControlName="active">
+                <span *ngIf="raceForm.value.active">{{"ACTIVE - race is ready to play" | translate}}</span>
+                <span *ngIf="!raceForm.value.active">{{"ACTIVE - race is NOT ready to play" | translate}}</span>
+              </md-checkbox>
+              <br/>
+              <md-checkbox formControlName="public">
+                <span *ngIf="raceForm.value.public">{{"PUBLIC - race is visible on public list and can be search by other users" | translate}}</span>
+                <span
+                  *ngIf="!raceForm.value.public">{{"PUBLIC - race is available only by scanning qr code" | translate}}</span>
+              </md-checkbox>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="file-upload">
+                <span class="text">{{"Upload main race image" | translate}}</span>
+                <input type="file" (change)="fileChangeListener1($event)">
+              </div>
+              <img-cropper [hidden]="!data1.image" #cropper1 [image]="data1" [settings]="cropperSettings"
+                           (onCrop)="onCropListener1()"></img-cropper>
+            </div>
+            <div class="col-lg-6">
+             <span class="result" *ngIf="data1.image">
+               <img [src]="data1.image" class="img-fluid">
+            </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="file-upload">
+                <span class="text">{{"Upload win race image" | translate}}</span>
+                <input type="file" (change)="fileChangeListener2($event)">
+              </div>
+              <img-cropper [hidden]="!data2.image" #cropper2 [image]="data2" [settings]="cropperSettings"
+                           (onCrop)="onCropListener2()"></img-cropper>
+            </div>
+            <div class="col-lg-6">
+             <span class="result" *ngIf="data2.image">
+               <img [src]="data2.image" class="img-fluid">
+            </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="file-upload">
+                <span class="text">{{"Upload fail race image" | translate}}</span>
+                <input type="file" (change)="fileChangeListener3($event)">
+              </div>
+              <img-cropper [hidden]="!data3.image" #cropper3 [image]="data3" [settings]="cropperSettings"
+                           (onCrop)="onCropListener3()"></img-cropper>
+            </div>
+            <div class="col-lg-6">
+             <span class="result" *ngIf="data3.image">
+               <img [src]="data3.image" class="img-fluid">
+            </span>
+            </div>
+          </div>
+
+          <div class="mt-4 row col-alerts">
+            <div class="col-lg" *ngIf="!raceForm.valid">
+              <p class="alert alert-danger">{{"Fill all required fields" | translate}}</p>
+            </div>
+            <div class="col-lg" *ngIf="!data1.image">
+              <p class="alert alert-danger">{{"Upload main race image" | translate}}</p>
+            </div>
+            <div class="col-lg" *ngIf="!data2.image">
+              <p class="alert alert-danger">{{"Upload win race image" | translate}}</p>
+            </div>
+            <div class="col-lg" *ngIf="!data3.image">
+              <p class="alert alert-danger">{{"Upload fail race image" | translate}}</p>
+            </div>
+          </div>
+
+          <button md-raised-button md-ripple type="submit" color="primary"
+                  [disabled]="!raceForm.valid || !data1.image || !data2.image || !data3.image">
+            <md-icon>send</md-icon>
+            {{"Save" | translate}}
+          </button>
+
+          <button md-button md-ripple color="secondary" (click)="resetForm()" type="button">
+            {{"Clear form" | translate}}
+          </button>
+
+        </form>
+
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

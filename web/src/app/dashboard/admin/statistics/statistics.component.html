@@ -1,0 +1,230 @@
+<ng-container *ngIf="statistics">
+  <div class="row">
+
+    <div class="col-lg-6 col-md-12">
+      <md-card>
+        <md-card-header>
+          {{"Last registered users" | translate}} <i class="material-icons ml-2">trending_up</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>{{"E-mail" | translate}}</th>
+              <th>{{"First name" | translate}}</th>
+              <th>{{"Registered date" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of statistics.lastRegisteredUsers; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.email}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.registerDate | formatDate:'DD.MM.YYYY HH:mm'}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+      <md-card>
+        <md-card-header>
+          {{"Last removed users" | translate}} <i class="material-icons ml-2">trending_up</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>{{"E-mail" | translate}}</th>
+              <th>{{"First name" | translate}}</th>
+              <th>{{"Removed date" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of statistics.lastRemovedUsers; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.email}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.removeDate | formatDate:'DD.MM.YYYY HH:mm'}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xl-4 col-lg-12">
+      <md-card>
+        <md-card-header>
+          {{"Users" | translate}} <i class="material-icons ml-2">person</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>{{"Users" | translate}}</th>
+              <th>{{"Count" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{"Total users" | translate}}</td>
+              <td>{{statistics.totalUsers}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total active users" | translate}}</td>
+              <td>{{statistics.totalActiveUsers}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total removed users" | translate}}</td>
+              <td>{{statistics.totalRemovedUsers}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div class="col-xl-4 col-lg-12">
+      <md-card>
+        <md-card-header>
+          {{"Top races done" | translate}} <i class="material-icons ml-2">done</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>{{"Name" | translate}}</th>
+              <th>{{"City" | translate}}</th>
+              <th>{{"Count" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let race of statistics.topRacesDone; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{race.name}}</td>
+              <td>{{race.city}}</td>
+              <td>{{race.count}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div class="col-xl-4 col-lg-12">
+      <md-card>
+        <md-card-header>
+          {{"Top cities races" | translate}} <i class="material-icons ml-2">place</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>{{"City" | translate}}</th>
+              <th>{{"Count" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let race of statistics.topCitiesRaces; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{race.value}}</td>
+              <td>{{race.count}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <md-card>
+        <md-card-header>
+          {{"Races" | translate}} <i class="material-icons ml-2">map</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>{{"Races" | translate}}</th>
+              <th>{{"Count" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{"Total races" | translate}}</td>
+              <td>{{statistics.totalRaces}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total public races" | translate}}</td>
+              <td>{{statistics.totalPublicRaces}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total private races" | translate}}</td>
+              <td>{{statistics.totalPrivateRaces}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total active races" | translate}}</td>
+              <td>{{statistics.totalActiveRaces}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total inactive races" | translate}}</td>
+              <td>{{statistics.totalInactiveRaces}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+      <md-card>
+        <md-card-header>
+          {{"History" | translate}} <i class="material-icons ml-2">format_list_numbered</i>
+        </md-card-header>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>{{"Races" | translate}}</th>
+              <th>{{"Count" | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{"Total races done" | translate}}</td>
+              <td>{{statistics.totalRacesDone}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total races finished" | translate}}</td> 
+              <td>{{statistics.totalRacesWon}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total races failed" | translate}}</td>
+              <td>{{statistics.totalRacesFailed}}</td>
+            </tr>
+            <tr>
+              <td>{{"Total races in progress" | translate}}</td>
+              <td>{{statistics.totalRacesInProgress}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+    
+  </div>
+
+</ng-container>
+

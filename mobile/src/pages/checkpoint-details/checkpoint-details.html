@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+
+        <ion-buttons left>
+            <button ion-button tappable (click)="popView()" class="page-icon">
+                <ion-icon name="ios-arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button tappable (click)="showHint()" class="page-icon">
+                <ion-icon name="help-buoy"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title class="page-title" *ngIf="selectedCheckpoint">
+            {{ "Checkpoint" | translate }}: {{ selectedCheckpoint.number }}
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+    <div *ngIf="selectedCheckpoint">
+
+        <div class="card-primary-bg">
+            <h3 text-center>
+                {{selectedCheckpoint.name}}
+            </h3>
+            <p text-center>{{ "Time left" | translate}} {{ timeService.timeLeft | secondsToTime }}</p>
+            <img src="{{checkpointImageUrl}}"/>
+            <p text-justify padding>{{ selectedCheckpoint.description }}</p>
+            <div class="question">{{ selectedCheckpoint.question }}</div>
+        </div>
+
+        <div class="card-primary-bg">
+            <div *ngIf="!isCheckpointDone(selectedCheckpoint.number)">
+                <ion-item [hidden]="!inputVisible" margin-bottom>
+                    <ion-input type="text" placeholder="{{ 'Enter answer' | translate}} " [(ngModel)]="answer"
+                               (keyup.enter)="clickSendButton()" text-center></ion-input>
+                </ion-item>
+
+                <button tappable ion-button icon-left (click)="clickSendButton()"
+                        *ngIf="selectedCheckpoint.answerType=='text'">
+                    <ion-icon name="send" margin-right></ion-icon>
+                    {{ "Send answer" | translate }}
+
+                </button>
+
+                <button tappable ion-button (click)="scanQrCode()" (press)="showInput()"
+                        *ngIf="selectedCheckpoint.answerType=='qr'">
+                    <ion-icon name="md-qr-scanner" margin-right></ion-icon>
+                    {{ "Scan QR code" | translate }}
+
+                </button>
+            </div>
+            <div *ngIf="isCheckpointDone(selectedCheckpoint.number)">
+                <p>{{ "This checkpoint is already done" | translate }}</p>
+                <button tappable (click)="goToCurrentCheckpoint(global.currentCheckpointNumber)" ion-button>
+                    {{ "Go to current checkpoint" | translate }}
+                    <ion-icon margin-horizontal name="play"></ion-icon>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</ion-content>

@@ -1,0 +1,34 @@
+@import "../../theme/variables.scss";
+
+page-tabs {
+
+  .tabbar {
+    background-color: $secondary!important;
+  }
+
+  .tabbar:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primary!important;
+    content: '';
+    z-index: -1;
+  }
+
+  .tab-button {
+    height: 64px!important;
+  }
+
+  .tab-button-icon, .tab-button {
+    color: $light-font !important;
+  }
+
+  .tab-button:hover:not(.disable-hover), .tab-button[aria-selected=true], .tab-button[aria-selected=true] .tab-button-icon {
+    color: $accent !important;
+  }
+
+}

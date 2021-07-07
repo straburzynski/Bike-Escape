@@ -1,0 +1,43 @@
+page-signup {
+
+  .content {
+    background: linear-gradient(
+                    rgba(32, 40, 55, 0.9),
+                    rgba(32, 40, 55, 0.7),
+                    rgba(32, 40, 55, 0.9)
+    ), url("../assets/img/bg.jpg") no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    color: white;
+  }
+
+  .item {
+    color: white;
+  }
+
+  .spacing {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .label .icon {
+    margin-right: 1.5rem;
+  }
+
+  .error-message {
+    text-align: right;
+    color: #cccccc;
+  }
+
+  .error-message .item-inner {
+    border-bottom: none!important;
+  }
+
+  .label-md[floating] {
+    color: white;
+  }
+
+}

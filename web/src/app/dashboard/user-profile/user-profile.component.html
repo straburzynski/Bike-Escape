@@ -1,0 +1,31 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <md-card>
+      <md-card-header>
+        {{"User profile" | translate}}
+      </md-card-header>
+
+      <md-card-content *ngIf="userProfile">
+        <p>User id: <span>{{userProfile.id}}</span></p>
+        <p>E-mail: <span>{{userProfile.email}}</span></p>
+        <p>First name: <span>{{userProfile.firstName}}</span></p>
+      </md-card-content>
+    </md-card>
+  </div>
+
+  <div class="col-md-6">
+    <md-card>
+      <md-card-header>
+        Avatar
+      </md-card-header>
+
+      <md-card-content>
+        <p>user avatar</p>
+      </md-card-content>
+    </md-card>
+  </div>
+
+</div>
+
+

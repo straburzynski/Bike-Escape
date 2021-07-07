@@ -1,0 +1,33 @@
+@import "../../theme/variables";
+
+page-race-details {
+
+  .card-title, .label {
+    color: $light-font;
+  }
+
+  .item {
+    background: none;
+    padding-left: 10px;
+    padding-right: 0!important;
+  }
+
+  .badge {
+    background: $secondary;
+    font-weight: normal;
+  }
+
+  .button {
+    background: $secondary;
+  }
+
+  ion-list ion-icon {
+    color: $accent;
+  }
+
+  ion-item.item.item-block.item-ios, ion-item.item.item-block.item-md {
+    border-bottom: 2px solid $secondary;
+    margin-bottom: 5px;
+  }
+
+}
